@@ -51,6 +51,7 @@ class ArticleController extends Controller
 		$articles  = Article::where('title', 'like', '%'.$key.'%')
 							->paginate(10);
 		
+        
 		return view(
 				'article.list',
 				[
