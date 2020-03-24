@@ -3,6 +3,12 @@
 
 @section('page_content')
     <h1>{{ $article->title }}</h1>
+    
+    <i>chuyen muc: </i>
+    @foreach($article->categories as $category)
+    <i>{{$category->content}}</i>
+    @endforeach
+    <hr>
     <div>{{ $article->content }}</div>
     <hr>
     @foreach($article->comments as $comment)

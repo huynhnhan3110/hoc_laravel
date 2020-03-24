@@ -60,11 +60,13 @@ class ArticleController extends Controller
 			);
 	}
 	public function get(ArticleGetRequest $request, $id) {
+		$article = Article::findOrFail($id);
+		
 
 		return view(
 			'article.detail',
 			[
-				'article' => Article::findOrFail($id)
+				'article' => $article
 			]
 			);
 	}
