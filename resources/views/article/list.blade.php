@@ -12,8 +12,10 @@
     @foreach($articles as $article)
     <div>
         <h3><a href="{{ route('detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h3>
-        <a href="{{ route('articleEdit',['id' => $article->id]) }}">Sua</a>
-        <a href="{{ route('articleDelete',['id' => $article->id]) }}">Xoa</a>
+        
+        
+        <button type="button" class="btn btn-success btn-link"><a href="{{ route('articleEdit',['id' => $article->id]) }}">Sua</a></button>
+        <button type="button" class="btn btn-danger btn-link"><a href="{{ route('articleDelete',['id' => $article->id]) }}">Xoa</a></button>
 
     </div>
     @endforeach
