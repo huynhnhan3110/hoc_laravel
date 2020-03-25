@@ -6,16 +6,14 @@
     <!-- Neu khong co token cho route nhan thi no se bi loi 419 -->
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{ $article->id }}">
-    <div>
-        <label>Tieu de</label>
-        <input type="text" name="title" value="{{ $article->title }}">
+    <div class="form-group">
+        <label for="title">Tieu de</label>
+        <input type="text" class="form-control" placeholder="Enter title" name="title">
     </div>
-    <div>
-        <label>Noi dung</label>
-        <textarea name="content" >{{ $article->content }}</textarea>
+    <div class="form-group">
+        <label for="content">Noi dung</label>
+        <textarea class="form-control" rows="5" name="content"></textarea>
     </div>
-    <div>
-        <button type="submit">Hoan thanh</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Hoan Thanh</button>
 </form>
 @endsection
