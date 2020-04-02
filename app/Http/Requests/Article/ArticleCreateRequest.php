@@ -24,7 +24,11 @@ class ArticleCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=> 'min:6|required|max:100',
+            'title'=> [
+                'required',
+                'min:6',
+                'unique:articles'
+            ],
             'content'=> 'min:6|required'
         ];
     }

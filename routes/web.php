@@ -25,8 +25,17 @@ Route::group(
 		Route::get('/edit/{id}', 'ArticleController@showEditForm')->name('articleEdit');
 		Route::get('/detail/{id}', 'ArticleController@get')->name('detail');
 
-		Route::get('/get/list', 'ArticleController@list')->name('articleList');
+		Route::get('/list', 'ArticleController@showListPage')->name('articleListPage');
 		Route::post('/update', 'ArticleController@update')->name('articleUpdate');
 		Route::get('/delete', 'ArticleController@delete')->name('articleDelete');
 	}
 );
+Route::group(
+	['prefix' => '/api'],
+	function() {
+		Route::get('/list', 'ArticleController@list')->name('articleList');
+		Route::post('/delete', 'ArticleController@delete')->name('articleDelete');
+		Route::post('/update', 'ArticleController@update')->name('articleUpdate');
+	}
+);
+

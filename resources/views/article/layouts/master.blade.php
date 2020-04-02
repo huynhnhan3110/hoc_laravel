@@ -8,11 +8,13 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="app">
         <div class="col-12 mt-5">
             @yield('page_content')
         </div>
     </div>
 
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/app.js"></script>
 </html>

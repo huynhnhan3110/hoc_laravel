@@ -21,7 +21,7 @@ class ArticleController extends Controller
 		$article->fill($request->all());
 		$article->save();
 
-		return redirect()->route('articleList');
+		return redirect()->route('articleListPage');
 	}
 	
 	public function update(ArticleUpdateRequest $request) {
@@ -29,7 +29,7 @@ class ArticleController extends Controller
 		$article->fill($request->all());
 		$article->save();
 
-		return redirect()->route('articleList');
+		return response()->json($request->id);
 	}
 	public function showEditForm(Request $request, $id) {
 		return view(
@@ -44,20 +44,17 @@ class ArticleController extends Controller
 	public function delete(ArticleDeleteRequest $request) {
 		$article = Article::findOrFail($request->id);
 		$article->delete();
-		return redirect()->route('articleList');
+		return response()->json($request->id);
+	}
+	public function showListPage(Request $request) {
+		return view('article.list');
 	}
 	public function list(Request $request) {
 		$key = $request->input('keyword');
 		$articles  = Article::where('title', 'like', '%'.$key.'%')
 							->paginate(10);
-		
-        
-		return view(
-				'article.list',
-				[
-					'articles' => $articles
-				]
-			);
+		sleep(1);
+        return response()->json($articles);
 	}
 	public function get(ArticleGetRequest $request, $id) {
 		$article = Article::findOrFail($id);
