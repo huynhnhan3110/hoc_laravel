@@ -78,22 +78,6 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Bui van nguyen
-                </div>
-
-                <div>
-                    <form method='post' action="{{ route('addPost')}}">
-                        {{ @csrf_field() }}
-                        <input type="text" name="title" placeholder="them bai viet" value="{{ old('title') }}"><br>
-                        <input type="text" name="content" placeholder="noi dung" value="{{ old('content') }}"><br>
-                       
-                        <input type="submit" value="dang bai viet">
-                    </form>
-                </div>
-            </div>
         </div>
     </body>
 </html>
